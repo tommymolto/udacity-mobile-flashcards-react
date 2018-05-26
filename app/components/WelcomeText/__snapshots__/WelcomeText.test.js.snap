@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeText renders correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 24,
+          "paddingHorizontal": 15,
+          "paddingTop": 10,
+          "textAlign": "center",
+        },
+        undefined,
+      ]
+    }
+  >
+    Welcome to Mobile Flashcards!
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 18,
+          "paddingBottom": 10,
+          "paddingHorizontal": 15,
+          "paddingTop": 10,
+          "textAlign": "center",
+        },
+        undefined,
+      ]
+    }
+  >
+    What do you want to learn today?
+  </Text>
+</View>
+`;
