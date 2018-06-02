@@ -23,6 +23,8 @@ export const Tabs = TabNavigator(
     HomeView: {
       screen: HomeView,
       navigationOptions: {
+        headerLeft: null,
+
         tabBarLabel: 'Home',
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="home" size={30} color={tintColor} />
@@ -32,6 +34,8 @@ export const Tabs = TabNavigator(
     NewDeckForm: {
       screen: NewDeckForm,
       navigationOptions: {
+        headerLeft: null,
+
         tabBarLabel: 'Create quiz',
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="plus-square" size={30} color={tintColor} />
@@ -41,6 +45,8 @@ export const Tabs = TabNavigator(
     Settings: {
       screen: Settings,
       navigationOptions: {
+        headerLeft: null,
+
         tabBarLabel: 'Settings',
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="cog" size={30} color={tintColor} />
@@ -51,6 +57,7 @@ export const Tabs = TabNavigator(
   {
     navigationOptions: {
       header: null,
+      headerLeft: null,
     },
     swipeEnabled: true,
     animationEnabled: true,
@@ -90,6 +97,7 @@ export const MainNavigator = StackNavigator({
   Quiz: {
     screen: RunQuiz,
     navigationOptions: {
+      headerLeft: null,
       title: 'Quiz',
     },
   },
