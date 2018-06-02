@@ -9,7 +9,6 @@ import {
   selectQuizLength,
   selectQuestionsAndAnswers,
 } from '../../selectors/quizSelectors';
-
 const RunQuiz = ({
   currentQuestion,
   deckTitle,
@@ -19,7 +18,9 @@ const RunQuiz = ({
   totalQuizQuestions,
   userCorrectScore,
   userIncorrectScore,
+  volta,
 }) => {
+
   if (questionsAndAnswers[currentQuestion] !== undefined) {
     return (
       <View>
@@ -45,6 +46,8 @@ const RunQuiz = ({
       totalQuizQuestions={totalQuizQuestions}
       userCorrectScore={userCorrectScore}
       userIncorrectScore={userIncorrectScore}
+      volta={volta}
+
     />
   );
 };
@@ -58,6 +61,8 @@ RunQuiz.propTypes = {
   totalQuizQuestions: PropTypes.number.isRequired,
   userCorrectScore: PropTypes.number.isRequired,
   userIncorrectScore: PropTypes.number.isRequired,
+  volta: PropTypes.func.isRequired,
+
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -75,6 +80,7 @@ const mapStateToProps = (state, ownProps) => ({
   ),
   userCorrectScore: state.quiz.quizNumbers.quizScoreCorrect,
   userIncorrectScore: state.quiz.quizNumbers.quizScoreIncorrect,
+  volta: ownProps.navigation.state.params.volta,
 });
 
 export default connect(mapStateToProps)(RunQuiz);

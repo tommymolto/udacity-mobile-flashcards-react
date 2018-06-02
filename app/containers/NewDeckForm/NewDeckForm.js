@@ -12,7 +12,7 @@ class NewDeckForm extends Component {
   };
 
   handleOnPress = (payload) => {
-    if (this.state.title.length < 1) {
+    if (this.state.title.trim().length < 1) {
       return Alert.alert(
         'Your question',
         'needs more than 1 character.',

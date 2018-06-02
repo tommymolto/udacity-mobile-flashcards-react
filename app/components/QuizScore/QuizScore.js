@@ -5,7 +5,10 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import SecondaryButton from '../Buttons/SecondaryButton';
 import { resetQuiz } from '../../actions/quizActions';
-
+import {
+  clearLocalNotification,
+  setLocalNotification,
+} from '../../utils/helpers';
 const StyledQuizScoreText = styled.Text`
   font-size: 20;
   padding-vertical: 15;
@@ -17,7 +20,8 @@ const QuizScore = ({
   totalQuizQuestions,
   userCorrectScore,
   userIncorrectScore,
-  userResetQuiz,
+  userResetQuiz, backToDeck,
+  volta,
 }) => (
   <View>
     <StyledQuizScoreText>
@@ -30,14 +34,22 @@ const QuizScore = ({
         userResetQuiz();
       }}
     />
+    <SecondaryButton
+      text="Back to Deck"
+      onPress={volta}
+    />
+
   </View>
 );
-
+clearLocalNotification()
+  .then(setLocalNotification(new Date()));
 QuizScore.propTypes = {
   totalQuizQuestions: PropTypes.number.isRequired,
   userCorrectScore: PropTypes.number.isRequired,
   userIncorrectScore: PropTypes.number.isRequired,
   userResetQuiz: PropTypes.func.isRequired,
+  backToDeck: PropTypes.func.isRequired,
+  volta: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -47,6 +59,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   userResetQuiz: () => {
     dispatch(resetQuiz());
+  },
+  backToDeck: () => {
+    this.volta();
   },
 });
 

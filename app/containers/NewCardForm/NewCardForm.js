@@ -13,7 +13,7 @@ class NewCardForm extends Component {
   };
 
   handleOnPress = () => {
-    if (this.state.question.length < 2) {
+    if (this.state.question.trim().length < 2) {
       return Alert.alert(
         'Your question',
         'needs more than 2 characters.',
@@ -22,7 +22,7 @@ class NewCardForm extends Component {
       );
     }
 
-    if (this.state.answer.length < 2) {
+    if (this.state.answer.trim().length < 2) {
       return Alert.alert(
         'Your answer',
         'needs more than 2 characters.',

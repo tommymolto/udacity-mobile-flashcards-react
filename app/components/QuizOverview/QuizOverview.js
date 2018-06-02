@@ -26,6 +26,12 @@ const StyledQuestionsNumText = styled.Text`
 
 const QuizOverview = (props) => {
   const { title, questions } = props.navigation.state.params;
+  const volta = () => {
+    props.navigation.navigate('QuizOverview', {
+      title,
+      questions,
+    });
+  };
 
   return (
     <StyledView>
@@ -34,11 +40,13 @@ const QuizOverview = (props) => {
       <ButtonWrapper>
         <PrimaryButton
           text="Start quiz"
-          onPress={() =>
+          onPress={() => {
             props.navigation.navigate('Quiz', {
               title,
               questions,
-            })
+              volta,
+            });
+          }
           }
         />
         <PrimaryButton
@@ -57,10 +65,14 @@ const QuizOverview = (props) => {
 QuizOverview.propTypes = {
   navigation: PropTypes.object.isRequired,
   quizLength: PropTypes.number.isRequired,
+  volta: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   quizLength: state.decks[ownProps.navigation.state.params.title].quizLength,
+  volta: () => {
+    this.props.navigation.navigate('QuizOverview', props)
+  },
 });
 
 export default connect(mapStateToProps)(QuizOverview);
