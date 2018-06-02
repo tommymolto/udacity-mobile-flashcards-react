@@ -27,6 +27,7 @@ function createNotification() {
  * Accreditation: code adapted from Udacity React Native 'UdaciFitness' lessons
  */
 export function setLocalNotification(chosenTime) {
+  console.log(chosenTime)
   AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)
     .then((data) => {

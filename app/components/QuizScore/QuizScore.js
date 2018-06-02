@@ -22,27 +22,31 @@ const QuizScore = ({
   userIncorrectScore,
   userResetQuiz, backToDeck,
   volta,
-}) => (
-  <View>
-    <StyledQuizScoreText>
-      You got {userCorrectScore} right and {userIncorrectScore} wrong from a
-      total of {totalQuizQuestions} questions.
-    </StyledQuizScoreText>
-    <SecondaryButton
-      text="Reset Quiz?"
-      onPress={() => {
-        userResetQuiz();
-      }}
-    />
-    <SecondaryButton
-      text="Back to Deck"
-      onPress={volta}
-    />
+}) => {
+  const dt = new Date();
+  clearLocalNotification()
+    .then(setLocalNotification(dt));
+  return (
+    <View>
+      <StyledQuizScoreText>
+        You got {userCorrectScore} right and {userIncorrectScore} wrong from a
+        total of {totalQuizQuestions} questions.
+      </StyledQuizScoreText>
+      <SecondaryButton
+        text="Reset Quiz?"
+        onPress={() => {
+          userResetQuiz();
+        }}
+      />
+      <SecondaryButton
+        text="Back to Deck"
+        onPress={volta}
+      />
 
-  </View>
-);
-clearLocalNotification()
-  .then(setLocalNotification(new Date()));
+    </View>
+  );
+};
+
 QuizScore.propTypes = {
   totalQuizQuestions: PropTypes.number.isRequired,
   userCorrectScore: PropTypes.number.isRequired,
